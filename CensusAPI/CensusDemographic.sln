@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{7CC613D8-6027-4618-BB20-C6C5F43443F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{830761F1-41DD-4BE4-933E-4BBF1C68DC9D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Data", "5.1 - Data", "{FA227334-134E-4D53-B848-93B30EAA72DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2- Setup", "5.2- Setup", "{655DD3BB-94AD-4A30-9CB6-99472C6342FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{DDA9C497-88DF-44AC-AD3B-B0DDBC6FD7D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{11DD2D9C-B57F-4F79-9AC3-8958266B39FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{8E8C3C43-C483-4D56-8B5C-F95D5659AA03}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusDemographic.UnitTests", "CensusDemographic.UnitTests\CensusDemographic.UnitTests.csproj", "{EDA4AD82-D25C-49E5-9027-53790A17B8CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusDemographic.Infra.Setup", "CensusDemographic.Infra.Setup\CensusDemographic.Infra.Setup.csproj", "{264ED210-0D48-42B4-A42E-92807A1FD437}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusDemographic.Domain", "CensusDemographic.Domain\CensusDemographic.Domain.csproj", "{44628DB5-8A43-49EF-95C2-1C595C76DD2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusDemographic.Services", "CensusDemographic.Services\CensusDemographic.Services.csproj", "{E1349AEF-301E-4F2B-824E-799A5F9D8AE6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusDemographic.WebApi", "CensusDemographic.WebApi\CensusDemographic.WebApi.csproj", "{2E7B9608-66B1-422A-8546-7344688F07F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusDemographic.Infra.Data", "CensusDemographic.Infra.Data\CensusDemographic.Infra.Data.csproj", "{AAFAFCAD-6341-4187-8ED6-FDB601C9E5F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{64EACA30-CD1D-4159-902D-A25D036C3109}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDA4AD82-D25C-49E5-9027-53790A17B8CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA4AD82-D25C-49E5-9027-53790A17B8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA4AD82-D25C-49E5-9027-53790A17B8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA4AD82-D25C-49E5-9027-53790A17B8CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{264ED210-0D48-42B4-A42E-92807A1FD437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{264ED210-0D48-42B4-A42E-92807A1FD437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{264ED210-0D48-42B4-A42E-92807A1FD437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{264ED210-0D48-42B4-A42E-92807A1FD437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44628DB5-8A43-49EF-95C2-1C595C76DD2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44628DB5-8A43-49EF-95C2-1C595C76DD2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44628DB5-8A43-49EF-95C2-1C595C76DD2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44628DB5-8A43-49EF-95C2-1C595C76DD2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1349AEF-301E-4F2B-824E-799A5F9D8AE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1349AEF-301E-4F2B-824E-799A5F9D8AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1349AEF-301E-4F2B-824E-799A5F9D8AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1349AEF-301E-4F2B-824E-799A5F9D8AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7B9608-66B1-422A-8546-7344688F07F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7B9608-66B1-422A-8546-7344688F07F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7B9608-66B1-422A-8546-7344688F07F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7B9608-66B1-422A-8546-7344688F07F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAFAFCAD-6341-4187-8ED6-FDB601C9E5F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAFAFCAD-6341-4187-8ED6-FDB601C9E5F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAFAFCAD-6341-4187-8ED6-FDB601C9E5F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAFAFCAD-6341-4187-8ED6-FDB601C9E5F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FA227334-134E-4D53-B848-93B30EAA72DD} = {830761F1-41DD-4BE4-933E-4BBF1C68DC9D}
+		{655DD3BB-94AD-4A30-9CB6-99472C6342FC} = {830761F1-41DD-4BE4-933E-4BBF1C68DC9D}
+		{264ED210-0D48-42B4-A42E-92807A1FD437} = {655DD3BB-94AD-4A30-9CB6-99472C6342FC}
+		{44628DB5-8A43-49EF-95C2-1C595C76DD2C} = {7CC613D8-6027-4618-BB20-C6C5F43443F9}
+		{E1349AEF-301E-4F2B-824E-799A5F9D8AE6} = {11DD2D9C-B57F-4F79-9AC3-8958266B39FE}
+		{2E7B9608-66B1-422A-8546-7344688F07F8} = {DDA9C497-88DF-44AC-AD3B-B0DDBC6FD7D5}
+		{AAFAFCAD-6341-4187-8ED6-FDB601C9E5F7} = {FA227334-134E-4D53-B848-93B30EAA72DD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {60B3D4E8-FE94-46C1-AE9C-08735203058D}
+	EndGlobalSection
+EndGlobal

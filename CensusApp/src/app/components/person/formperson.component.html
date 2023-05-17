@@ -1,0 +1,158 @@
+    <!-- <div class="row">
+      <div class="col-6 border boder-light rounded p-5 shadow" *ngIf="form">
+        <h1>{{ titleForm }}</h1>
+        <hr />
+  
+        <form [formGroup]="form" (ngSubmit)="SendForm()">
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Document</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="document"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Document Father</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="documentFather"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Document Mother</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="documentMother"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label>Color</label>
+            <select formControlName="color">
+              <option *ngFor="let color of colors" [ngValue]="color.value">
+                {{ color.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Mother Name</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="motherName"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Father Name</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="fatherName"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Schooling</label>
+            <select formControlName="schooling">
+              <option *ngFor="let schooling of schoolings" [ngValue]="schooling.value">
+                {{ schooling.name }}
+              </option>
+            </select>
+          </div>
+
+          <h2> Region </h2>
+        
+
+          <div formGroupName="region">
+            <div class="form-group">
+            <label>Continent</label>
+            <select formControlName="continent">
+              <option *ngFor="let continent of continents" [ngValue]="continent.value">
+                {{ continent.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Zip Code</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="zipCode"
+            /></div>
+
+            <div class="form-group">
+            <label>Street</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="street"
+            /></div>
+
+            <div class="form-group">
+            <label>Neighborhood</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="neighborhood"
+            /></div>
+
+            <div class="form-group">
+            <label>City</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="city"
+            />
+            </div>
+
+            <div class="form-group">
+            <label>State</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="state"
+            /></div>
+
+            <div class="form-group">
+            <label>Country:</label>
+            <input type="text" formControlName="country">
+          
+          </div>
+          
+          
+          </div>
+
+      
+  
+          <div class="container">
+            <div class="row">
+              <div>
+                <button type="submit" class="btn btn-sm btn-outline-secondary">
+                  Save
+                </button>
+              </div>
+              <div class="pl-1">
+                <button type="button" class="btn btn-sm btn-light" (click)="Back()">Back</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div> -->

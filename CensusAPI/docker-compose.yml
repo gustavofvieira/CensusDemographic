@@ -1,0 +1,8 @@
+version: '20.10.22'
+services:
+  mongo:
+    image: 'mongo:latest'
+    container_name: mongo
+    restart: always
+    ports:
+      - '27017:27017'

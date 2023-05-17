@@ -1,0 +1,432 @@
+<div class="container p-5" *ngIf="visibleTable">
+    <div class="border boder-light rounded p-5">
+     
+      <div class="container p-5">
+
+
+        <form [formGroup]="formFilter" (ngSubmit)="SendFilter()">
+          <div class="form-group">
+            <label>Page Number:</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="pageNumber"
+            />
+
+            <label>Page Size:</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="pageSize"
+            />
+            <label>With Percentual:</label>
+            <input
+              type="checkbox"
+              class="form-control form-control-sm"
+              formControlName="withPencentual"
+            />
+            <label>*Require Someone Region</label>
+          </div>
+
+                
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Color</label>
+            <select formControlName="color">
+              <option *ngFor="let color of colors" [ngValue]="color.value">
+                {{ color.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Schooling</label>
+            <select formControlName="schooling">
+              <option *ngFor="let schooling of schoolings" [ngValue]="schooling.value">
+                {{ schooling.name }}
+              </option>
+            </select>
+          </div>
+
+          <div formGroupName="region">
+            <div class="form-group">
+            <label>Continent</label>
+            <select formControlName="continent">
+              <option *ngFor="let continent of continents" [ngValue]="continent.value">
+                {{ continent.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Zip Code</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="zipCode"
+            /></div>
+
+            <div class="form-group">
+            <label>Street</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="street"
+            /></div>
+
+            <div class="form-group">
+            <label>Neighborhood</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="neighborhood"
+            /></div>
+
+            <div class="form-group">
+            <label>City</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="city"
+            />
+            </div>
+
+            <div class="form-group">
+            <label>State</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="state"
+            /></div>
+
+            <div class="form-group">
+            <label>Country:</label>
+            <input type="text" formControlName="country">
+          
+          </div>
+
+          </div>
+          <h1 *ngIf="visiblePercentual">{{ percentualView }}% of people with region filter </h1>
+          <button type="submit" class="btn btn-sm btn-outline-secondary">
+            Find
+          </button>
+        </form>
+
+      </div>
+      <hr />
+      <div>
+        <button type="button" class="btn btn-sm btn-secondary" (click)="ShowFormRegister()">
+          New Person
+        </button>
+      </div>
+      <table class="table table-striped table-hover table-sm" *ngIf="persons">   
+        <tr class="thead-light">
+          <th>Name</th>
+          <th>Document</th>
+          <th>Document Father</th>
+          <th>Document Mother</th>
+          <th>Color</th>
+          <th>Mother Name</th>
+          <th>Father Name</th>
+          <th>Schooling</th>
+          <th>Region</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+  
+        <tr *ngFor="let person of persons">
+          <td>{{ person.name }}</td>
+          <td>{{ person.document }}</td>
+          <td>{{ person.documentFather }}</td>
+          <td>{{ person.documentMother }}</td>
+          <td>{{ ColorToString(person.color) }}</td> 
+          <td>{{ person.motherName }}</td>
+          <td>{{ person.fatherName }}</td>
+         <td>{{ SchoolingToString(person.schooling) }}</td>
+         <td>{{ person.region?.country + " - " + person.region?.state + " - " + person.region?.city }}</td> 
+        <td>{{ FormatDateStr(person.createdAt) }}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-info" (click)="ShowPerson(person.personId)">
+              Show Person</button> |
+            <button type="button" class="btn btn-sm btn-outline-info" (click)="ShowFormUpdate(person.personId)">
+              Update</button>| 
+           <button type="button" class="btn btn-sm btn-outline-danger" (click)="ShowConfirmDelete(person.personId, person.name, conteudoModal)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </table>
+      <div class="pl-1">
+        <a href="/home">Back to home</a>
+      </div>
+
+    </div>
+  </div>
+  
+
+
+  <div class="container p-5" *ngIf="visiblePerson">
+    <div class="border boder-light rounded p-5">
+      
+      
+      <hr />
+  
+      <table class="table table-striped table-hover table-sm" *ngIf="person">
+        <tr class="thead-light">
+          <th>Name</th>
+          <th>Document</th>
+          <th>Document Father</th>
+          <th>Document Mother</th>
+          <th>Color</th>
+          <th>Mother Name</th>
+          <th>Father Name</th>
+          <th>Schooling</th>
+          <th>Region</th>
+          <th>Created At</th>
+        </tr>
+  
+        <tr >
+          <td>{{ person.name }}</td>
+          <td>{{ person.document }}</td>
+          <td>{{ person.documentFather }}</td>
+          <td>{{ person.documentMother }}</td> 
+          <td>{{ ColorToString(person.color) }}</td> 
+          <td>{{ person.motherName }}</td>
+          <td>{{ person.fatherName }}</td>
+         <td>{{ SchoolingToString(person.schooling) }}</td>
+         <td>{{ person.region?.country + " - " + person.region?.state + " - " + person.region?.city }}</td> 
+        <td>{{ FormatDateStr(person.createdAt) }}</td>
+        
+        </tr>
+
+        <div >
+
+          <form [formGroup]="formFamilyTree" (ngSubmit)="SendFamilyTree()">
+          
+          <div class="form-group">
+            <label>Level Family Tree</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="level"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-sm btn-outline-secondary">
+            Family Tree
+          </button> 
+        </form>
+        </div> 
+
+        <div class="container p-5" *ngIf="visibleFamilyTree">
+          <table class="table table-striped table-hover table-sm" *ngIf="familyTree">  
+          <tr *ngFor="let parent of familyTree.parents">
+            <td>{{ parent.parents }}</td>
+            <td>{{ person.document }}</td>
+            <td>{{ person.documentFather }}</td>
+            <td>{{ person.documentMother }}</td>
+            <td>{{ ColorToString(person.color) }}</td> 
+            <td>{{ person.motherName }}</td>
+            <td>{{ person.fatherName }}</td>
+           <td>{{ SchoolingToString(person.schooling) }}</td>
+           <td>{{ person.region?.country + " - " + person.region?.state + " - " + person.region?.city }}</td> 
+          <td>{{ FormatDateStr(person.createdAt) }}</td>
+          
+          </tr>
+        </table>
+        </div>
+        <div class="pl-1">
+          
+        </div>
+          <div class="pl-1">
+          <button type="button" class="btn btn-sm btn-light" (click)="Back()">Back</button>
+        </div>
+      </table>
+    </div>
+  </div>
+
+ 
+
+<div class="container p-5" *ngIf="visibleForm">
+    <div class="row">
+      <div class="col-6 border boder-light rounded p-5 shadow" *ngIf="form">
+        <h1>{{ titleForm }}</h1>
+        <hr />
+  
+        <form [formGroup]="form" (ngSubmit)="SendForm()">
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Document</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="document"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Document Father</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="documentFather"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Document Mother</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="documentMother"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label>Color</label>
+            <select formControlName="color">
+              <option *ngFor="let color of colors" [ngValue]="color.value">
+                {{ color.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Mother Name</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="motherName"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Father Name</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="fatherName"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Schooling</label>
+            <select formControlName="schooling">
+              <option *ngFor="let schooling of schoolings" [ngValue]="schooling.value">
+                {{ schooling.name }}
+              </option>
+            </select>
+          </div>
+
+     
+          <h2> Region </h2>
+        
+
+          <div formGroupName="region">
+            <div class="form-group">
+            <label>Continent</label>
+            <select formControlName="continent">
+              <option *ngFor="let continent of continents" [ngValue]="continent.value">
+                {{ continent.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Zip Code</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="zipCode"
+            /></div>
+
+            <div class="form-group">
+            <label>Street</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="street"
+            /></div>
+
+            <div class="form-group">
+            <label>Neighborhood</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="neighborhood"
+            /></div>
+
+            <div class="form-group">
+            <label>City</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="city"
+            />
+            </div>
+
+            <div class="form-group">
+            <label>State</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="state"
+            /></div>
+
+            <div class="form-group">
+            <label>Country:</label>
+            <input type="text" formControlName="country">
+          </div>
+          </div>
+
+      
+  
+          <div class="container">
+            <div class="row">
+              <div>
+                <button type="submit" class="btn btn-sm btn-outline-secondary">
+                  Save
+                </button>
+              </div>
+              <div class="pl-1">
+                <button type="button" class="btn btn-sm btn-light" (click)="Back()">Back</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #conteudoModal>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Confirm Delete</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Continue delete of {{title}}
+      </div>
+  
+      <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modalRef.hide()">No</button>
+          <button type="button" class="btn btn-outline-danger" (click)="Delete(personId)">Yes</button>
+      </div>
+    </ng-template>
